@@ -12,7 +12,7 @@ var (
 	TypeFdf  = newType("fdf", "application/vnd.fdf")
 	TypeAi   = newType("ai", "application/postscript")
 	TypeTsa  = newType("tsa", "text/tab-separated-values")
-	TypeWim  = newType("wim", "")
+	TypeWim  = newType("wim", "application/octet-stream")
 )
 
 var Document = Map{

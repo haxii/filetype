@@ -25,9 +25,8 @@ var (
 	TypeLz     = newType("lz", "application/x-lzip")
 	TypeRpm    = newType("rpm", "application/x-rpm")
 	TypeElf    = newType("elf", "application/x-executable")
-	TypeTBZ2   = newType("TBZ2", "")
-	TypeTB2    = newType("TB2", "")
-	TypeIso    = newType("iso", "")
+	TypeTbz2   = newType("tbz2", "application/x-tar-bz2")
+	TypeIso    = newType("iso", "application/octet-stream")
 )
 
 var Archive = Map{

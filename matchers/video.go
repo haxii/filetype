@@ -10,12 +10,13 @@ var (
 	TypeWmv  = newType("wmv", "video/x-ms-wmv")
 	TypeMpeg = newType("mpg", "video/mpeg")
 	TypeFlv  = newType("flv", "video/x-flv")
-	TypeIvr  = newType("ivr", "")
-	TypeVod  = newType("vod", "")
+	TypeVob  = newType("vob", "video/x-ms-vob")
 	TypeRmvb = newType("rmvb", "application/vnd.rn-realmedia")
 	TypeVcd  = newType("vcd", "application/x-cdlink")
-	TypeVmd  = newType("vmd", "")
-	TypeWpl  = newType("wpl", "")
+	TypeVmd  = newType("vmd", "chemical/x-vmd ")
+	TypeWpl  = newType("wpl", "application/vnd.ms-wpl")
+	TypeDvr  = newType("dvr", "video/x-ms-dvr")
+	TypeIvr  = newType("ivr", "video/vnd.rn-realvideo")
 )
 
 var Video = Map{
