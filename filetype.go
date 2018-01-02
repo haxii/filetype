@@ -3,8 +3,8 @@ package filetype
 import (
 	"errors"
 
-	"gopkg.in/h2non/filetype.v1/matchers"
-	"gopkg.in/h2non/filetype.v1/types"
+	"github.com/haxii/filetype/matchers"
+	"github.com/haxii/filetype/types"
 )
 
 // Types stores a map of supported types
