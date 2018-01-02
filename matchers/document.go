@@ -9,6 +9,10 @@ var (
 	TypeXlsx = newType("xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 	TypePpt  = newType("ppt", "application/vnd.ms-powerpoint")
 	TypePptx = newType("pptx", "application/vnd.openxmlformats-officedocument.presentationml.presentation")
+	TypeFdf  = newType("fdf", "application/vnd.fdf")
+	TypeAi   = newType("ai", "application/postscript")
+	TypeTsa  = newType("tsa", "text/tab-separated-values")
+	TypeWim  = newType("wim", "")
 )
 
 var Document = Map{

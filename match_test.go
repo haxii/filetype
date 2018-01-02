@@ -2,6 +2,7 @@ package filetype
 
 import (
 	"bytes"
+	"fmt"
 	"io"
 	"io/ioutil"
 	"testing"
@@ -123,9 +124,11 @@ func TestMatchMap(t *testing.T) {
 	}
 
 	for _, test := range cases {
-		if kind := MatchMap(test.buf, matchers.Image); kind != test.kind {
+		kind := MatchMap(test.buf, matchers.Image)
+		if kind != test.kind {
 			t.Fatalf("Do not matches: %#v", test.buf)
 		}
+		fmt.Println(kind)
 	}
 }
 

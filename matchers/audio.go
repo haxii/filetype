@@ -8,6 +8,18 @@ var (
 	TypeFlac = newType("flac", "audio/x-flac")
 	TypeWav  = newType("wav", "audio/x-wav")
 	TypeAmr  = newType("amr", "audio/amr")
+	Type3gg  = newType("3gp", "	video/3gpp")
+	TypeAcc  = newType("acc", "")
+	TypeAsf  = newType("asf", "video/x-ms-asf")
+	TypeWma  = newType("wma", "")
+	TypeCaf  = newType("caf", "")
+	TypeCda  = newType("cda", "")
+	TypeDvr  = newType("dvr", "")
+	TypeQcp  = newType("qcp", "audio/vnd.qcelp")
+	TypeRa   = newType("ra", "audio/x-realaudio")
+	TypeRm   = newType("rm", "audio/x-pn-realaudio")
+	TypeRmi  = newType("rmi", "audio/mid")
+	TypeVoc  = newType("voc", "audio/voc")
 )
 
 var Audio = Map{

@@ -11,6 +11,16 @@ var (
 	TypeJxr  = newType("jxr", "image/vnd.ms-photo")
 	TypePsd  = newType("psd", "image/vnd.adobe.photoshop")
 	TypeIco  = newType("ico", "image/x-icon")
+	TypeBgp  = newType("bgp", "")
+	TypeImg  = newType("img", "")
+	TypeJb2  = newType("jb2", "")
+	TypeJfif = newType("jfif", "image/jpeg")
+	TypeJpe  = newType("jpe", "image/jpeg")
+	TypeJpg  = newType("jpg", "image/jpeg")
+	TypeJp2  = newType("Jp2", "")
+	TypeTif  = newType("tif", "")
+	TypeVhd  = newType("vhd", "")
+	TypeWmf  = newType("wmf", "windows/metafile")
 )
 
 var Image = Map{
@@ -60,7 +70,8 @@ func CR2(buf []byte) bool {
 func Tiff(buf []byte) bool {
 	return len(buf) > 3 &&
 		((buf[0] == 0x49 && buf[1] == 0x49 && buf[2] == 0x2A && buf[3] == 0x0) ||
-			(buf[0] == 0x4D && buf[1] == 0x4D && buf[2] == 0x0 && buf[3] == 0x2A))
+			(buf[0] == 0x4D && buf[1] == 0x4D && buf[2] == 0x0 && buf[3] == 0x2A) ||
+			(buf[0] == 0x49 && buf[1] == 0x20 && buf[2] == 0x49))
 }
 
 func Bmp(buf []byte) bool {
