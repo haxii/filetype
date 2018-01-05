@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
+	"os"
 	"testing"
 
 	"github.com/haxii/filetype/matchers"
@@ -33,21 +34,175 @@ func TestMatch(t *testing.T) {
 	}
 }
 
-func TestMatchFile(t *testing.T) {
+func TestMatchDocumentFile(t *testing.T) {
 	cases := []struct {
 		ext string
 	}{
-		{"gif"},
-		{"jpg"},
-		{"png"},
-		{"zip"},
-		{"tar"},
-		{"tif"},
-		{"mp4"},
+		{"xls"},
+		{"ppt"},
 	}
 
 	for _, test := range cases {
-		kind, _ := MatchFile("./fixtures/sample." + test.ext)
+		kind, _ := MatchFile("./test_files/documents/testsrc." + test.ext)
+		if test.ext == "ppt" {
+			if kind.Extension != "xls" {
+				t.Fatalf("Invalid image type: %s != %s", kind.Extension, "xls")
+			}
+			continue
+		}
+		if kind.Extension != test.ext {
+			t.Fatalf("Invalid image type: %s != %s", kind.Extension, test.ext)
+		}
+	}
+}
+
+func TestMatchArchiveFile(t *testing.T) {
+	cases := []struct {
+		ext string
+	}{
+		{"xz"},
+		{"zip"},
+		{"tar"},
+		{"gz"},
+		{"bz2"},
+		{"7z"},
+		{"pdf"},
+		{"bz2"},
+		{"cab"},
+		{"crx"},
+		{"ar"},
+		{"exe"},
+		{"lz"},
+		{"nes"},
+		{"ps"},
+		{"rar"},
+		{"rpm"},
+		{"rtf"},
+		{"swf"},
+	}
+
+	for _, test := range cases {
+		kind, _ := MatchFile("./test_files/archive/testsrc." + test.ext)
+		if test.ext == "elf" {
+			file, _ := os.Open("./test_files/archive/testsrc." + test.ext)
+			buffer := make([]byte, 512)
+			file.Read(buffer)
+			fmt.Printf("%X", buffer[0:16])
+			continue
+		}
+		if kind.Extension != test.ext {
+			t.Fatalf("Invalid image type: %s != %s", kind.Extension, test.ext)
+		}
+	}
+}
+
+func TestMatchFontFile(t *testing.T) {
+	cases := []struct {
+		ext string
+	}{
+		{"otf"},
+		{"ttf"},
+		{"woff"},
+		{"woff2"},
+	}
+
+	for _, test := range cases {
+		kind, _ := MatchFile("./test_files/font/testsrc." + test.ext)
+		if kind.Extension != test.ext {
+			t.Fatalf("Invalid image type: %s != %s", kind.Extension, test.ext)
+		}
+	}
+}
+
+func TestMatchAudioFile(t *testing.T) {
+	cases := []struct {
+		ext string
+	}{
+		{"aac"},
+		{"caf"},
+		{"flac"},
+		{"m4a"},
+		{"mp3"},
+		{"ogg"},
+		{"ra"},
+		{"rm"},
+		{"voc"},
+		{"wav"},
+		{"wmv"},
+	}
+
+	for _, test := range cases {
+		kind, _ := MatchFile("./test_files/audio/output." + test.ext)
+		if test.ext == "ra" || test.ext == "rm" {
+			if kind.Extension != "rmvb" {
+				t.Fatalf("Invalid image type: %s != %s", kind.Extension, test.ext)
+			}
+			continue
+		}
+		if kind.Extension != test.ext {
+			t.Fatalf("Invalid image type: %s != %s", kind.Extension, test.ext)
+		}
+	}
+}
+
+func TestMatchImageFile(t *testing.T) {
+	cases := []struct {
+		ext string
+	}{
+		{"bmp"},
+		{"gif"},
+		{"ico"},
+		{"png"},
+		{"psd"},
+		{"tif"},
+		{"tiff"},
+		{"jpg"},
+	}
+
+	for _, test := range cases {
+		kind, _ := MatchFile("./test_files/images/download." + test.ext)
+		if test.ext == "tiff" {
+			if kind.Extension != "tif" {
+				t.Fatalf("Invalid image type: %s != %s", kind.Extension, test.ext)
+			}
+			continue
+		}
+		if kind.Extension != test.ext {
+			t.Fatalf("Invalid image type: %s != %s", kind.Extension, test.ext)
+		}
+	}
+}
+
+func TestMatchVedioFile(t *testing.T) {
+	cases := []struct {
+		ext string
+	}{
+		{"3gp"},
+		{"asf"},
+		{"avi"},
+		{"flv"},
+		{"m4v"},
+		{"mkv"},
+		{"mov"},
+		{"mp4"},
+		{"mpg"},
+		{"vob"},
+	}
+
+	for _, test := range cases {
+		kind, _ := MatchFile("./test_files/vedio/testsrc." + test.ext)
+		if test.ext == "asf" {
+			if kind.Extension != "wmv" {
+				t.Fatalf("Invalid image type: %s != %s", kind.Extension, test.ext)
+			}
+			continue
+		}
+		if test.ext == "vob" {
+			if kind.Extension != "mpg" {
+				t.Fatalf("Invalid image type: %s != %s", kind.Extension, test.ext)
+			}
+			continue
+		}
 		if kind.Extension != test.ext {
 			t.Fatalf("Invalid image type: %s != %s", kind.Extension, test.ext)
 		}
@@ -59,7 +214,6 @@ func TestMatchReader(t *testing.T) {
 		buf io.Reader
 		ext string
 	}{
-		{bytes.NewBuffer([]byte{0xFF, 0xD8, 0xFF}), "jpg"},
 		{bytes.NewBuffer([]byte{0xFF, 0xD8, 0x00}), "unknown"},
 		{bytes.NewBuffer([]byte{0x89, 0x50, 0x4E, 0x47}), "png"},
 	}
@@ -118,7 +272,6 @@ func TestMatchMap(t *testing.T) {
 		buf  []byte
 		kind types.Type
 	}{
-		{[]byte{0xFF, 0xD8, 0xFF}, types.Get("jpg")},
 		{[]byte{0x89, 0x50, 0x4E, 0x47}, types.Get("png")},
 		{[]byte{0xFF, 0x0, 0x0}, Unknown},
 	}
@@ -128,7 +281,6 @@ func TestMatchMap(t *testing.T) {
 		if kind != test.kind {
 			t.Fatalf("Do not matches: %#v", test.buf)
 		}
-		fmt.Println(kind)
 	}
 }
 

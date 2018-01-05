@@ -1,7 +1,6 @@
 package matchers
 
 var (
-	TypeEpub   = newType("epub", "application/epub+zip")
 	TypeZip    = newType("zip", "application/zip")
 	TypeTar    = newType("tar", "application/x-tar")
 	TypeRar    = newType("rar", "application/x-rar-compressed")
@@ -13,24 +12,18 @@ var (
 	TypeExe    = newType("exe", "application/x-msdownload")
 	TypeSwf    = newType("swf", "application/x-shockwave-flash")
 	TypeRtf    = newType("rtf", "application/rtf")
-	TypeEot    = newType("eot", "application/octet-stream")
 	TypePs     = newType("ps", "application/postscript")
 	TypeSqlite = newType("sqlite", "application/x-sqlite3")
 	TypeNes    = newType("nes", "application/x-nintendo-nes-rom")
 	TypeCrx    = newType("crx", "application/x-google-chrome-extension")
 	TypeCab    = newType("cab", "application/vnd.ms-cab-compressed")
-	TypeDeb    = newType("deb", "application/x-deb")
 	TypeAr     = newType("ar", "application/x-unix-archive")
 	TypeZ      = newType("Z", "application/x-compress")
 	TypeLz     = newType("lz", "application/x-lzip")
 	TypeRpm    = newType("rpm", "application/x-rpm")
-	TypeElf    = newType("elf", "application/x-executable")
-	TypeTbz2   = newType("tbz2", "application/x-tar-bz2")
-	TypeIso    = newType("iso", "application/octet-stream")
 )
 
 var Archive = Map{
-	TypeEpub:   Epub,
 	TypeZip:    Zip,
 	TypeTar:    Tar,
 	TypeRar:    Rar,
@@ -42,30 +35,15 @@ var Archive = Map{
 	TypeExe:    Exe,
 	TypeSwf:    Swf,
 	TypeRtf:    Rtf,
-	TypeEot:    Eot,
 	TypePs:     Ps,
 	TypeSqlite: Sqlite,
 	TypeNes:    Nes,
 	TypeCrx:    Crx,
 	TypeCab:    Cab,
-	TypeDeb:    Deb,
 	TypeAr:     Ar,
 	TypeZ:      Z,
 	TypeLz:     Lz,
 	TypeRpm:    Rpm,
-	TypeElf:    Elf,
-}
-
-func Epub(buf []byte) bool {
-	return len(buf) > 57 &&
-		buf[0] == 0x50 && buf[1] == 0x4B && buf[2] == 0x3 && buf[3] == 0x4 &&
-		buf[30] == 0x6D && buf[31] == 0x69 && buf[32] == 0x6D && buf[33] == 0x65 &&
-		buf[34] == 0x74 && buf[35] == 0x79 && buf[36] == 0x70 && buf[37] == 0x65 &&
-		buf[38] == 0x61 && buf[39] == 0x70 && buf[40] == 0x70 && buf[41] == 0x6C &&
-		buf[42] == 0x69 && buf[43] == 0x63 && buf[44] == 0x61 && buf[45] == 0x74 &&
-		buf[46] == 0x69 && buf[47] == 0x6F && buf[48] == 0x6E && buf[49] == 0x2F &&
-		buf[50] == 0x65 && buf[51] == 0x70 && buf[52] == 0x75 && buf[53] == 0x62 &&
-		buf[54] == 0x2B && buf[55] == 0x7A && buf[56] == 0x69 && buf[57] == 0x70
 }
 
 func Zip(buf []byte) bool {
@@ -147,16 +125,6 @@ func Cab(buf []byte) bool {
 			(buf[0] == 0x49 && buf[1] == 0x53 && buf[2] == 0x63 && buf[3] == 0x28))
 }
 
-func Eot(buf []byte) bool {
-	return len(buf) > 35 &&
-		buf[34] == 0x4C && buf[35] == 0x50 &&
-		((buf[8] == 0x02 && buf[9] == 0x00 &&
-			buf[10] == 0x01) || (buf[8] == 0x01 &&
-			buf[9] == 0x00 && buf[10] == 0x00) ||
-			(buf[8] == 0x02 && buf[9] == 0x00 &&
-				buf[10] == 0x02))
-}
-
 func Ps(buf []byte) bool {
 	return len(buf) > 1 &&
 		buf[0] == 0x25 && buf[1] == 0x21
@@ -173,17 +141,6 @@ func Sqlite(buf []byte) bool {
 	return len(buf) > 3 &&
 		buf[0] == 0x53 && buf[1] == 0x51 &&
 		buf[2] == 0x4C && buf[3] == 0x69
-}
-
-func Deb(buf []byte) bool {
-	return len(buf) > 20 &&
-		buf[0] == 0x21 && buf[1] == 0x3C && buf[2] == 0x61 &&
-		buf[3] == 0x72 && buf[4] == 0x63 && buf[5] == 0x68 &&
-		buf[6] == 0x3E && buf[7] == 0x0A && buf[8] == 0x64 &&
-		buf[9] == 0x65 && buf[10] == 0x62 && buf[11] == 0x69 &&
-		buf[12] == 0x61 && buf[13] == 0x6E && buf[14] == 0x2D &&
-		buf[15] == 0x62 && buf[16] == 0x69 && buf[17] == 0x6E &&
-		buf[18] == 0x61 && buf[19] == 0x72 && buf[20] == 0x79
 }
 
 func Ar(buf []byte) bool {
@@ -210,10 +167,4 @@ func Rpm(buf []byte) bool {
 	return len(buf) > 96 &&
 		buf[0] == 0xED && buf[1] == 0xAB &&
 		buf[2] == 0xEE && buf[3] == 0xDB
-}
-
-func Elf(buf []byte) bool {
-	return len(buf) > 52 &&
-		buf[0] == 0x7F && buf[1] == 0x45 &&
-		buf[2] == 0x4C && buf[3] == 0x46
 }
