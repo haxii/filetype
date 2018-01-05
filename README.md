@@ -190,6 +190,14 @@ func main() {
 - **jxr** - `image/vnd.ms-photo`
 - **psd** - `image/vnd.adobe.photoshop`
 - **ico** - `image/x-icon`
+- **jb2** - `image/x-jb2`
+- **jfif** - `image/jpeg`
+- **jpe** - `image/jpeg`
+- **jpg** - `image/jpeg`
+- **jp2** - `image/jp2`
+- **vhd** - `application/octet-stream`
+- **wmf** - `windows/metafile`
+- **jb2** - `image/x-jb2`
 
 #### Video
 
@@ -202,6 +210,17 @@ func main() {
 - **wmv** - `video/x-ms-wmv`
 - **mpg** - `video/mpeg`
 - **flv** - `video/x-flv`
+- **mpg** - `video/x-ms-vob`
+- **rmvb** - `application/vnd.rn-realmedia`
+- **vcd** - `application/x-cdlink`
+- **vmd** - `chemical/x-vmd`
+- **wpl** - `application/vnd.ms-wpl`
+- **dvr** - `video/x-ms-dvr`
+- **ivr** - `video/vnd.rn-realvideo`
+- **3gg** - `video/3gpp`
+- **3gp** - `video/3gpp`
+- **3g2** - `video/3gpp`
+- **wmv** - `video/x-ms-asf`
 
 #### Audio
 
@@ -212,10 +231,18 @@ func main() {
 - **flac** - `audio/x-flac`
 - **wav** - `audio/x-wav`
 - **amr** - `audio/amr`
+- **aac** - `audio/aac`
+- **wma** - `audio/x-ms-wma`
+- **caf** - `audio/x-caf`
+- **cda** - `application/x-cdf`
+- **qcp** - `audio/vnd.qcelp`
+- **ra** - `audio/x-realaudio`
+- **rm** - `audio/x-pn-realaudio`
+- **rmi** - `audio/mid`
+- **voc** - `audio/voc`
 
 #### Archive
 
-- **epub** - `application/epub+zip`
 - **zip** - `application/zip`
 - **tar** - `application/x-tar`
 - **rar** - `application/x-rar-compressed`
@@ -227,27 +254,24 @@ func main() {
 - **exe** - `application/x-msdownload`
 - **swf** - `application/x-shockwave-flash`
 - **rtf** - `application/rtf`
-- **eot** - `application/octet-stream`
 - **ps** - `application/postscript`
 - **sqlite** - `application/x-sqlite3`
 - **nes** - `application/x-nintendo-nes-rom`
 - **crx** - `application/x-google-chrome-extension`
 - **cab** - `application/vnd.ms-cab-compressed`
-- **deb** - `application/x-deb`
 - **ar** - `application/x-unix-archive`
 - **Z** - `application/x-compress`
 - **lz** - `application/x-lzip`
 - **rpm** - `application/x-rpm`
-- **elf** - `application/x-executable`
 
 #### Documents
 
-- **doc** - `application/msword`
-- **docx** - `application/vnd.openxmlformats-officedocument.wordprocessingml.document`
 - **xls** - `application/vnd.ms-excel`
-- **xlsx** - `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`
 - **ppt** - `application/vnd.ms-powerpoint`
-- **pptx** - `application/vnd.openxmlformats-officedocument.presentationml.presentation`
+- **fdf** - `application/vnd.fdf`
+- **ai** - `application/postscript`
+- **tsa** - `text/tab-separated-values`
+- **wim** - `application/octet-stream`
 
 #### Font
 

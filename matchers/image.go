@@ -18,7 +18,7 @@ var (
 	TypeJpe  = newType("jpg", "image/jpeg")
 	TypeJpg  = newType("jpg", "image/jpeg")
 	TypeJp2  = newType("jp2", "image/jp2")
-	TypeTif  = newType("tif", "image/tif")
+	TypeTif  = newType("tif", "image/tiff")
 	TypeVhd  = newType("vhd", "application/octet-stream")
 	TypeWmf  = newType("wmf", "windows/metafile")
 )
