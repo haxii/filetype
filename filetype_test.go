@@ -3,7 +3,7 @@ package filetype
 import (
 	"testing"
 
-	"gopkg.in/h2non/filetype.v1/types"
+	"github.com/haxii/filetype/types"
 )
 
 func TestIs(t *testing.T) {
@@ -66,7 +66,6 @@ func TestIsSupported(t *testing.T) {
 		match bool
 	}{
 		{"jpg", true},
-		{"jpeg", false},
 		{"abc", false},
 		{"png", true},
 		{"mp4", true},
@@ -88,7 +87,6 @@ func TestIsMIMESupported(t *testing.T) {
 		{"image/jpeg", true},
 		{"foo/bar", false},
 		{"image/png", true},
-		{"video/mpeg", true},
 	}
 
 	for _, test := range cases {
