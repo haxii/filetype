@@ -1,8 +1,6 @@
-# filetype [![Build Status](https://travis-ci.org/h2non/filetype.png)](https://travis-ci.org/h2non/filetype) [![GoDoc](https://godoc.org/github.com/h2non/filetype?status.svg)](https://godoc.org/github.com/h2non/filetype) [![Go Report Card](http://goreportcard.com/badge/h2non/filetype)](http://goreportcard.com/report/h2non/filetype) [![Go Version](https://img.shields.io/badge/go-v1.0+-green.svg?style=flat)](https://github.com/h2non/gentleman)
+# filetype [![GoDoc](https://godoc.org/github.com/h2non/filetype?status.svg)](https://godoc.org/github.com/h2non/filetype)
 
 Small and dependency free [Go](https://golang.org) package to infer file and MIME type checking the [magic numbers](https://en.wikipedia.org/wiki/Magic_number_(programming)#Magic_numbers_in_files) signature.
-
-For SVG file type checking, see [go-is-svg](https://github.com/h2non/go-is-svg) package.
 
 ## Features
 
@@ -26,12 +24,12 @@ go get github.com/haxii/filetype.v1
 
 ## API
 
-See [Godoc](https://godoc.org/github.com/h2non/filetype) reference.
+See [Godoc](https://godoc.org/github.com/haxii/filetype) reference.
 
 ### Subpackages
 
-- [`github.com/haxii/filetype.v1/types`](https://godoc.org/github.com/h2non/filetype/types)
-- [`github.com/haxii/filetype.v1/matchers`](https://godoc.org/github.com/h2non/filetype/matchers)
+- [`github.com/haxii/filetype.v1/types`](https://godoc.org/github.com/haxii/filetype/types)
+- [`github.com/haxii/filetype.v1/matchers`](https://godoc.org/github.com/haxii/filetype/matchers)
 
 ## Examples
 
@@ -282,7 +280,7 @@ func main() {
 
 ## Benchmarks
 
-Measured using [real files](https://github.com/h2non/filetype/tree/master/fixtures).
+Measured using [real files](https://github.com/haxii/filetype/tree/master/fixtures).
 
 Environment: OSX x64 i7 2.7 Ghz
 
