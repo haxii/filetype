@@ -19,7 +19,7 @@ Small and dependency free [Go](https://golang.org) package to infer file and MIM
 ## Installation
 
 ```bash
-go get github.com/haxii/filetype.v1
+go get github.com/haxii/filetype
 ```
 
 ## API
@@ -28,8 +28,8 @@ See [Godoc](https://godoc.org/github.com/haxii/filetype) reference.
 
 ### Subpackages
 
-- [`github.com/haxii/filetype.v1/types`](https://godoc.org/github.com/haxii/filetype/types)
-- [`github.com/haxii/filetype.v1/matchers`](https://godoc.org/github.com/haxii/filetype/matchers)
+- [`github.com/haxii/filetype/types`](https://godoc.org/github.com/haxii/filetype/types)
+- [`github.com/haxii/filetype/matchers`](https://godoc.org/github.com/haxii/filetype/matchers)
 
 ## Examples
 
@@ -40,7 +40,7 @@ package main
 
 import (
   "fmt"
-  "github.com/haxii/filetype.v1"
+  "github.com/haxii/filetype"
   "io/ioutil"
 )
 
@@ -64,7 +64,7 @@ package main
 
 import (
   "fmt"
-  "github.com/haxii/filetype.v1"
+  "github.com/haxii/filetype"
   "io/ioutil"
 )
 
@@ -86,7 +86,7 @@ package main
 
 import (
   "fmt"
-  "github.com/haxii/filetype.v1"
+  "github.com/haxii/filetype"
 )
 
 func main() {
@@ -113,7 +113,7 @@ package main
 
 import (
   "fmt"
-  "github.com/haxii/filetype.v1"
+  "github.com/haxii/filetype"
   "io/ioutil"
 )
 
@@ -140,7 +140,7 @@ package main
 
 import (
   "fmt"
-  "github.com/haxii/filetype.v1"
+  "github.com/haxii/filetype"
 )
 
 var fooType = filetype.NewType("foo", "foo/foo")
