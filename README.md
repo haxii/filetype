@@ -285,13 +285,13 @@ Measured using [real files](https://github.com/haxii/filetype/tree/master/fixtur
 Environment: OSX x64 Xeon 2.8 Ghz
 
 ```bash
-BenchmarkMatchTar-8    500000         2700 ns/op
-BenchmarkMatchZip-8    500000         2933 ns/op
-BenchmarkMatchJpeg-8   500000         2507 ns/op
-BenchmarkMatchGif-8    500000         2923 ns/op
-BenchmarkMatchPng-8    500000         2569 ns/op
-BenchmarkMatchM4v-8    500000         2472 ns/op
-BenchmarkMatchTif-8    500000         2742 ns/op
+BenchmarkMatchTar-8    500000       2700 ns/op
+BenchmarkMatchZip-8    500000       2933 ns/op
+BenchmarkMatchJpeg-8   500000       2507 ns/op
+BenchmarkMatchGif-8    500000       2923 ns/op
+BenchmarkMatchPng-8    500000       2569 ns/op
+BenchmarkMatchM4v-8    500000       2472 ns/op
+BenchmarkMatchTif-8    500000       2742 ns/op
 ```
 
 ## License
