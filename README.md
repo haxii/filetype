@@ -282,14 +282,16 @@ func main() {
 
 Measured using [real files](https://github.com/haxii/filetype/tree/master/fixtures).
 
-Environment: OSX x64 i7 2.7 Ghz
+Environment: OSX x64 Xeon 2.8 Ghz
 
 ```bash
-BenchmarkMatchTar-8    1000000        1083 ns/op
-BenchmarkMatchZip-8    1000000        1162 ns/op
-BenchmarkMatchJpeg-8   1000000        1280 ns/op
-BenchmarkMatchGif-8    1000000        1315 ns/op
-BenchmarkMatchPng-8    1000000        1121 ns/op
+BenchmarkMatchTar-8    500000         2700 ns/op
+BenchmarkMatchZip-8    500000         2933 ns/op
+BenchmarkMatchJpeg-8   500000         2507 ns/op
+BenchmarkMatchGif-8    500000         2923 ns/op
+BenchmarkMatchPng-8    500000         2569 ns/op
+BenchmarkMatchM4v-8    500000         2472 ns/op
+BenchmarkMatchTif-8    500000         2742 ns/op
 ```
 
 ## License
