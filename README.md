@@ -1,4 +1,4 @@
-# filetype [![GoDoc](https://godoc.org/github.com/haxii/filetype?status.svg)](https://godoc.org/github.com/haxii/filetype)
+# filetype [![Build Status](https://travis-ci.org/balinor2017/filetype.svg?branch=master)](https://travis-ci.org/balinor2017/filetype)[![GoDoc](https://godoc.org/github.com/haxii/filetype?status.svg)](https://godoc.org/github.com/haxii/filetype)
 
 Small and dependency free [Go](https://golang.org) package to infer file and MIME type checking the [magic numbers](https://en.wikipedia.org/wiki/Magic_number_(programming)#Magic_numbers_in_files) signature.
 
@@ -285,13 +285,13 @@ Measured using [real files](https://github.com/haxii/filetype/tree/master/fixtur
 Environment: OSX x64 Xeon 2.8 Ghz
 
 ```bash
-BenchmarkMatchTar-8    500000         2700 ns/op
-BenchmarkMatchZip-8    500000         2933 ns/op
-BenchmarkMatchJpeg-8   500000         2507 ns/op
-BenchmarkMatchGif-8    500000         2923 ns/op
-BenchmarkMatchPng-8    500000         2569 ns/op
-BenchmarkMatchM4v-8    500000         2472 ns/op
-BenchmarkMatchTif-8    500000         2742 ns/op
+BenchmarkMatchTar-8    500000       2700 ns/op
+BenchmarkMatchZip-8    500000       2933 ns/op
+BenchmarkMatchJpeg-8   500000       2507 ns/op
+BenchmarkMatchGif-8    500000       2923 ns/op
+BenchmarkMatchPng-8    500000       2569 ns/op
+BenchmarkMatchM4v-8    500000       2472 ns/op
+BenchmarkMatchTif-8    500000       2742 ns/op
 ```
 
 ## License
