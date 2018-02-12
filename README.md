@@ -1,4 +1,4 @@
-# filetype [![Build Status](https://travis-ci.org/balinor2017/filetype.svg?branch=master)](https://travis-ci.org/balinor2017/filetype)[![GoDoc](https://godoc.org/github.com/haxii/filetype?status.svg)](https://godoc.org/github.com/haxii/filetype)
+# filetype  [![Build Status](https://travis-ci.org/haxii/filetype.svg?branch=master)](https://travis-ci.org/haxii/filetype) [![GoDoc](https://godoc.org/github.com/haxii/filetype?status.svg)](https://godoc.org/github.com/haxii/filetype)
 
 Small and dependency free [Go](https://golang.org) package to infer file and MIME type checking the [magic numbers](https://en.wikipedia.org/wiki/Magic_number_(programming)#Magic_numbers_in_files) signature.
 
