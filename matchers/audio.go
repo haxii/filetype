@@ -106,7 +106,7 @@ func Wma(buf []byte) bool {
 func Caf(buf []byte) bool {
 	return len(buf) > 3 &&
 		buf[0] == 0x63 && buf[1] == 0x61 &&
-		buf[2] == 0x66 && buf[2] == 0x66
+		buf[2] == 0x66 && buf[3] == 0x66
 }
 
 func Cda(buf []byte) bool {

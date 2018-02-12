@@ -126,13 +126,13 @@ func Jp2(buf []byte) bool {
 func Tif(buf []byte) bool {
 	return len(buf) > 2 &&
 		((buf[0] == 0x43 && buf[1] == 0x57 &&
-			buf[1] == 0x53) ||
+			buf[2] == 0x53) ||
 			(buf[0] == 0x49 && buf[1] == 0x20 &&
 				buf[2] == 0x49) ||
 			(buf[0] == 0x49 && buf[1] == 0x49 &&
 				buf[2] == 0x2A && buf[3] == 0x00) ||
 			(buf[0] == 0x4D && buf[1] == 0x4D &&
-				buf[1] == 0x00 && buf[2] == 0x2A))
+				buf[2] == 0x00 && buf[3] == 0x2A))
 }
 
 func Vhd(buf []byte) bool {
