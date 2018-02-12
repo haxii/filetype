@@ -1,8 +1,6 @@
-# filetype [![Build Status](https://travis-ci.org/h2non/filetype.png)](https://travis-ci.org/h2non/filetype) [![GoDoc](https://godoc.org/github.com/h2non/filetype?status.svg)](https://godoc.org/github.com/h2non/filetype) [![Go Report Card](http://goreportcard.com/badge/h2non/filetype)](http://goreportcard.com/report/h2non/filetype) [![Go Version](https://img.shields.io/badge/go-v1.0+-green.svg?style=flat)](https://github.com/h2non/gentleman)
+# filetype [![GoDoc](https://godoc.org/github.com/haxii/filetype?status.svg)](https://godoc.org/github.com/haxii/filetype)
 
 Small and dependency free [Go](https://golang.org) package to infer file and MIME type checking the [magic numbers](https://en.wikipedia.org/wiki/Magic_number_(programming)#Magic_numbers_in_files) signature.
-
-For SVG file type checking, see [go-is-svg](https://github.com/h2non/go-is-svg) package.
 
 ## Features
 
@@ -21,17 +19,17 @@ For SVG file type checking, see [go-is-svg](https://github.com/h2non/go-is-svg) 
 ## Installation
 
 ```bash
-go get gopkg.in/h2non/filetype.v1
+go get github.com/haxii/filetype.v1
 ```
 
 ## API
 
-See [Godoc](https://godoc.org/github.com/h2non/filetype) reference.
+See [Godoc](https://godoc.org/github.com/haxii/filetype) reference.
 
 ### Subpackages
 
-- [`gopkg.in/h2non/filetype.v1/types`](https://godoc.org/github.com/h2non/filetype/types)
-- [`gopkg.in/h2non/filetype.v1/matchers`](https://godoc.org/github.com/h2non/filetype/matchers)
+- [`github.com/haxii/filetype.v1/types`](https://godoc.org/github.com/haxii/filetype/types)
+- [`github.com/haxii/filetype.v1/matchers`](https://godoc.org/github.com/haxii/filetype/matchers)
 
 ## Examples
 
@@ -42,7 +40,7 @@ package main
 
 import (
   "fmt"
-  "gopkg.in/h2non/filetype.v1"
+  "github.com/haxii/filetype.v1"
   "io/ioutil"
 )
 
@@ -66,7 +64,7 @@ package main
 
 import (
   "fmt"
-  "gopkg.in/h2non/filetype.v1"
+  "github.com/haxii/filetype.v1"
   "io/ioutil"
 )
 
@@ -88,7 +86,7 @@ package main
 
 import (
   "fmt"
-  "gopkg.in/h2non/filetype.v1"
+  "github.com/haxii/filetype.v1"
 )
 
 func main() {
@@ -115,7 +113,7 @@ package main
 
 import (
   "fmt"
-  "gopkg.in/h2non/filetype.v1"
+  "github.com/haxii/filetype.v1"
   "io/ioutil"
 )
 
@@ -142,7 +140,7 @@ package main
 
 import (
   "fmt"
-  "gopkg.in/h2non/filetype.v1"
+  "github.com/haxii/filetype.v1"
 )
 
 var fooType = filetype.NewType("foo", "foo/foo")
@@ -282,16 +280,18 @@ func main() {
 
 ## Benchmarks
 
-Measured using [real files](https://github.com/h2non/filetype/tree/master/fixtures).
+Measured using [real files](https://github.com/haxii/filetype/tree/master/fixtures).
 
-Environment: OSX x64 i7 2.7 Ghz
+Environment: OSX x64 Xeon 2.8 Ghz
 
 ```bash
-BenchmarkMatchTar-8    1000000        1083 ns/op
-BenchmarkMatchZip-8    1000000        1162 ns/op
-BenchmarkMatchJpeg-8   1000000        1280 ns/op
-BenchmarkMatchGif-8    1000000        1315 ns/op
-BenchmarkMatchPng-8    1000000        1121 ns/op
+BenchmarkMatchTar-8    500000         2700 ns/op
+BenchmarkMatchZip-8    500000         2933 ns/op
+BenchmarkMatchJpeg-8   500000         2507 ns/op
+BenchmarkMatchGif-8    500000         2923 ns/op
+BenchmarkMatchPng-8    500000         2569 ns/op
+BenchmarkMatchM4v-8    500000         2472 ns/op
+BenchmarkMatchTif-8    500000         2742 ns/op
 ```
 
 ## License

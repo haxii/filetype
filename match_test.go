@@ -310,6 +310,8 @@ var zipBuffer, _ = ioutil.ReadFile("./fixtures/sample.zip")
 var jpgBuffer, _ = ioutil.ReadFile("./fixtures/sample.jpg")
 var gifBuffer, _ = ioutil.ReadFile("./fixtures/sample.gif")
 var pngBuffer, _ = ioutil.ReadFile("./fixtures/sample.png")
+var m4vBuffer, _ = ioutil.ReadFile("./fixtures/sample.m4v")
+var tifBuffer, _ = ioutil.ReadFile("./fixtures/sample.tif")
 
 func BenchmarkMatchTar(b *testing.B) {
 	for n := 0; n < b.N; n++ {
@@ -338,5 +340,17 @@ func BenchmarkMatchGif(b *testing.B) {
 func BenchmarkMatchPng(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		Match(pngBuffer)
+	}
+}
+
+func BenchmarkMatchTif(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		Match(tifBuffer)
+	}
+}
+
+func BenchmarkMatchM4v(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		Match(m4vBuffer)
 	}
 }
