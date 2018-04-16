@@ -1,12 +1,15 @@
 package matchers
 
 var (
-	TypeJpeg = newType("jpg", "image/jpeg")
+	TypeJpg  = newType("jpg", "image/jpeg")
+	TypeJpe  = newType("jpe", "image/jpeg")
+	TypeJpeg = newType("jpeg", "image/jpeg")
+	TypeJfif = newType("jfif", "image/jpeg")
 	TypePng  = newType("png", "image/png")
 	TypeGif  = newType("gif", "image/gif")
 	TypeWebp = newType("webp", "image/webp")
 	TypeCR2  = newType("cr2", "image/x-canon-cr2")
-	TypeTiff = newType("tif", "image/tiff")
+	TypeTiff = newType("tiff", "image/tiff")
 	TypeBmp  = newType("bmp", "image/bmp")
 	TypeJxr  = newType("jxr", "image/vnd.ms-photo")
 	TypePsd  = newType("psd", "image/vnd.adobe.photoshop")
@@ -14,9 +17,6 @@ var (
 	TypeBgp  = newType("bgp", "")
 	TypeImg  = newType("img", "")
 	TypeJb2  = newType("jb2", "image/x-jb2")
-	TypeJfif = newType("jpg", "image/jpeg")
-	TypeJpe  = newType("jpg", "image/jpeg")
-	TypeJpg  = newType("jpg", "image/jpeg")
 	TypeJp2  = newType("jp2", "image/jp2")
 	TypeTif  = newType("tif", "image/tiff")
 	TypeVhd  = newType("vhd", "application/octet-stream")
