@@ -9,7 +9,8 @@ var (
 	TypeAvi  = newType("avi", "video/x-msvideo")
 	TypeWmv  = newType("wmv", "video/x-ms-wmv")
 	TypeMpeg = newType("mpeg", "video/mpeg")
-	TypeVob  = newType("mpg", "video/x-ms-vob")
+	TypeMpg  = newType("mpg", "video/mpeg")
+	TypeVob  = newType("vob", "video/x-ms-vob")
 	TypeFlv  = newType("flv", "video/x-flv")
 	TypeRmvb = newType("rmvb", "application/vnd.rn-realmedia")
 	TypeVcd  = newType("vcd", "application/x-cdlink")
@@ -31,6 +32,7 @@ var Video = Map{
 	TypeMov:  Mov,
 	TypeAvi:  Avi,
 	TypeWmv:  Wmv,
+	TypeMpg:  Mpeg,
 	TypeMpeg: Mpeg,
 	TypeFlv:  Flv,
 
@@ -162,9 +164,7 @@ func Vob(buf []byte) bool {
 }
 
 func Rmvb(buf []byte) bool {
-	return len(buf) > 3 &&
-		buf[0] == 0x2E && buf[1] == 0x52 &&
-		buf[2] == 0x4D && buf[3] == 0x46
+	return Rm(buf)
 }
 
 func Vcd(buf []byte) bool {

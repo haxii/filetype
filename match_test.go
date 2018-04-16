@@ -17,7 +17,7 @@ func TestMatch(t *testing.T) {
 		buf []byte
 		ext string
 	}{
-		{[]byte{0xFF, 0xD8, 0xFF}, "jpg"},
+		{[]byte{0x38, 0x42, 0x50, 0x53}, "psd"},
 		{[]byte{0xFF, 0xD8, 0x00}, "unknown"},
 		{[]byte{0x89, 0x50, 0x4E, 0x47}, "png"},
 	}
@@ -133,14 +133,20 @@ func TestMatchAudioFile(t *testing.T) {
 
 	for _, test := range cases {
 		kind, _ := MatchFile("./test_files/audio/output." + test.ext)
-		if test.ext == "ra" || test.ext == "rm" {
-			if kind.Extension != "rmvb" {
-				t.Fatalf("Invalid image type: %s != %s", kind.Extension, test.ext)
+		if test.ext == "ra" || test.ext == "rm" || test.ext == "rmvb" {
+			if kind.Extension != "ra" && kind.Extension != "rm" && kind.Extension != "rmvb" {
+				t.Fatalf("Invalid audio type: %s != %s", kind.Extension, test.ext)
+			}
+			continue
+		}
+		if test.ext == "asf" || test.ext == "wmv" {
+			if kind.Extension != "asf" && kind.Extension != "wmv" {
+				t.Fatalf("Invalid audio type: %s != %s", kind.Extension, test.ext)
 			}
 			continue
 		}
 		if kind.Extension != test.ext {
-			t.Fatalf("Invalid image type: %s != %s", kind.Extension, test.ext)
+			t.Fatalf("Invalid audio type: %s != %s", kind.Extension, test.ext)
 		}
 	}
 }
@@ -161,8 +167,14 @@ func TestMatchImageFile(t *testing.T) {
 
 	for _, test := range cases {
 		kind, _ := MatchFile("./test_files/images/download." + test.ext)
-		if test.ext == "tiff" {
-			if kind.Extension != "tif" {
+		if test.ext == "tiff" || test.ext == "tif" {
+			if kind.Extension != "tiff" && kind.Extension != "tif" {
+				t.Fatalf("Invalid image type: %s != %s", kind.Extension, test.ext)
+			}
+			continue
+		}
+		if test.ext == "jpg" || test.ext == "jpe" || test.ext == "jpeg" || test.ext == "jfif" {
+			if kind.Extension != "jpg" && kind.Extension != "jpe" && kind.Extension != "jpeg" && kind.Extension != "jfif" {
 				t.Fatalf("Invalid image type: %s != %s", kind.Extension, test.ext)
 			}
 			continue
@@ -191,20 +203,32 @@ func TestMatchVedioFile(t *testing.T) {
 
 	for _, test := range cases {
 		kind, _ := MatchFile("./test_files/vedio/testsrc." + test.ext)
-		if test.ext == "asf" {
-			if kind.Extension != "wmv" {
-				t.Fatalf("Invalid image type: %s != %s", kind.Extension, test.ext)
+		if test.ext == "mkv" {
+			if kind.Extension != "webm" && kind.Extension != "mkv" {
+				t.Fatalf("Invalid video type: %s != %s", kind.Extension, test.ext)
 			}
 			continue
 		}
-		if test.ext == "vob" {
-			if kind.Extension != "mpg" {
-				t.Fatalf("Invalid image type: %s != %s", kind.Extension, test.ext)
+		if test.ext == "3gp" {
+			if kind.Extension != "3g2" && kind.Extension != "3gg" && kind.Extension != "3gp" {
+				t.Fatalf("Invalid video type: %s != %s", kind.Extension, test.ext)
+			}
+			continue
+		}
+		if test.ext == "asf" {
+			if kind.Extension != "asf" && kind.Extension != "wmv" {
+				t.Fatalf("Invalid video type: %s != %s", kind.Extension, test.ext)
+			}
+			continue
+		}
+		if test.ext == "mpg" || test.ext == "mepg" || test.ext == "vob" {
+			if kind.Extension != "mpg" && kind.Extension != "mpeg" && kind.Extension != "vob" {
+				t.Fatalf("Invalid video type: %s != %s", kind.Extension, test.ext)
 			}
 			continue
 		}
 		if kind.Extension != test.ext {
-			t.Fatalf("Invalid image type: %s != %s", kind.Extension, test.ext)
+			t.Fatalf("Invalid video type: %s != %s", kind.Extension, test.ext)
 		}
 	}
 }
